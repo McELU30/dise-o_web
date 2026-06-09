@@ -1,0 +1,74 @@
+   
+   {% load static %}
+   
+   <div class="sidebar-desktop d-none d-lg-flex flex-column p-3 shadow-lg">
+        <div class="text-center mb-4 mt-2">
+            <div class="profile-icon">
+                <i class="bi bi-person"></i>
+            </div>
+            <h4 class="text-white fw-bolder mb-0" style="letter-spacing: 2px;">LUCAS</h4>
+            <small class="text-secondary fw-bold">DISEÑO_WEB</small>
+            
+            <div class="mt-3 bg-dark p-2 rounded d-inline-block border border-secondary">
+                <i class="bi bi-cpu text-primary me-1"></i><small class="fw-bold">MultiBlas</small>
+            </div>
+
+            <div class="sidebar-shortcuts">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <small class="text-white-50 fw-bold">Accesos rápidos</small>
+                    <span class="badge bg-primary">Tablas</span>
+                </div>
+                <div class="d-grid gap-2">
+                    {% with current=request.resolver_match.url_name %}
+                        <a href="{% url 'usuario' %}" class="btn btn-sm btn-outline-light {% if current == 'usuario' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-person-fill me-2"></i>Usuario
+                        </a>
+                        <a href="{% url 'personas' %}" class="btn btn-sm btn-outline-light {% if current == 'personas' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-people-fill me-2"></i>Personas
+                        </a>
+                        <a href="{% url 'metodos_pago' %}" class="btn btn-sm btn-outline-light {% if current == 'metodos_pago' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-credit-card-2-front-fill me-2"></i>Métodos pago
+                        </a>
+                        <a href="{% url 'categorias' %}" class="btn btn-sm btn-outline-light {% if current == 'categorias' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-tags-fill me-2"></i>Categorías
+                        </a>
+                        <a href="{% url 'marcas' %}" class="btn btn-sm btn-outline-light {% if current == 'marcas' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-award-fill me-2"></i>Marcas
+                        </a>
+                        <a href="{% url 'proveedores' %}" class="btn btn-sm btn-outline-light {% if current == 'proveedores' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-truck-flatbed me-2"></i>Proveedores
+                        </a>
+                        <a href="{% url 'productos' %}" class="btn btn-sm btn-outline-light {% if current == 'productos' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-box-seam-fill me-2"></i>Productos
+                        </a>
+                        <a href="{% url 'pedidos' %}" class="btn btn-sm btn-outline-light {% if current == 'pedidos' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-receipt-cutoff me-2"></i>Pedidos
+                        </a>
+                        <a href="{% url 'pagos' %}" class="btn btn-sm btn-outline-light {% if current == 'pagos' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-wallet2 me-2"></i>Pagos
+                        </a>
+                        <a href="{% url 'permisos' %}" class="btn btn-sm btn-outline-light {% if current == 'permisos' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-shield-lock-fill me-2"></i>Permisos
+                        </a>
+                        <a href="{% url 'detalle_permisos' %}" class="btn btn-sm btn-outline-light {% if current == 'detalle_permisos' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-card-list me-2"></i>Detalle permisos
+                        </a>
+                        <a href="{% url 'roles' %}" class="btn btn-sm btn-outline-light {% if current == 'roles' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-people-fill me-2"></i>Roles
+                        </a>
+                        <a href="{% url 'detalle_roles' %}" class="btn btn-sm btn-outline-light {% if current == 'detalle_roles' %}sidebar-link-active{% endif %}">
+                            <i class="bi bi-person-badge-fill me-2"></i>Detalle roles
+                        </a>
+                    {% endwith %}
+                    <a href="{% url 'logout' %}" class="btn btn-sm btn-logout">
+                        <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-4 text-center border-top" style="border-color: #30363d !important;">
+                <small class="fw-bold" style="letter-spacing: 2px; color: #8b9bb4;">CREADO POR LUCAS</small>
+            </div>
+        </div>
+        
+    </div>

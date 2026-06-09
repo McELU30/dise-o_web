@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <!--begin::Head-->
+  <head>
+    <!-- Estilos y links CSS cargados desde templates/Complementos/head.html -->
+    {% include 'Complementos/head.html' %}
+    {% block page_styles %}
+    <!-- Aquí puedes agregar estilos o links CSS específicos para personas.html -->
+    {% endblock %}
+  </head>
+  <!--end::Head-->
+
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      {% include 'Complementos/header.html' %}
+      <!--end::Header-->
+      {% include 'Complementos/sidebar.html' %}
+      <!--begin::App Main-->
+      <main class="app-main">
+        {% block content %}
+<div class="page-header">
+        <div class="page-badge"><i class="bi bi-people-fill"></i> Personas</div>
+        <h1 class="page-title">Contactos y perfiles</h1>
+        <p class="text-muted">Visualiza las personas registradas en el sistema con datos completos.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-12 col-xl-8">
+            <div class="card-surface">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                        <div>
+                            <h2 class="h4 mb-1">Registros recientes</h2>
+                            <p class="text-muted mb-0">Busca por nombre, documento o correo.</p>
+                        </div>
+                        <a href="{% url 'inicio_panel' %}" class="btn btn-outline-light action-button"><i class="bi bi-arrow-left-circle me-2"></i>Volver al panel</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-4 flex-wrap">
+                        <div class="info-pill"><i class="bi bi-person-lines-fill"></i> 42 registros</div>
+                        <input type="text" id="search_personas" oninput="filterTable('search_personas','table_personas')" class="form-control search-control" placeholder="Buscar personas...">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless text-white align-middle mb-0" id="table_personas">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ana Pérez</td>
+                                    <td>DNI 45678912</td>
+                                    <td>ana.perez@mail.com</td>
+                                    <td>+51 987 654 321</td>
+                                </tr>
+                                <tr>
+                                    <td>Jorge Vega</td>
+                                    <td>DNI 30214598</td>
+                                    <td>jorge.vega@mail.com</td>
+                                    <td>+51 946 552 110</td>
+                                </tr>
+                                <tr>
+                                    <td>Elena Ruiz</td>
+                                    <td>DNI 22113456</td>
+                                    <td>elena.ruiz@mail.com</td>
+                                    <td>+51 943 214 567</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="card-surface">
+                <div class="card-body">
+                    <h3 class="h5 mb-3">Resumen</h3>
+                    <p class="text-muted">Crea filtros y exporta los datos para obtener informes inmediatos.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Clientes</span>
+                            <strong>28</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Contactos</span>
+                            <strong>14</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Pendientes</span>
+                            <strong>3</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endblock %}
+      </main>
+      <!--end::App Main-->
+      {% include 'Complementos/footer.html' %}
+    </div>
+    <!--end::App Wrapper-->
+    <!-- Scripts JS cargados desde templates/Complementos/scripts.html -->
+    {% include 'Complementos/scripts.html' %}
+    {% block page_scripts %}
+    <!-- Aquí puedes agregar scripts específicos para personas.html -->
+    {% endblock %}
+  </body>
+  <!--end::Body-->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

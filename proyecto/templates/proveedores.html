@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <!--begin::Head-->
+  <head>
+    {% include 'Complementos/head.html' %}
+    {% block page_styles %}{% endblock %}
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      {% include 'Complementos/header.html' %}
+      {% include 'Complementos/sidebar.html' %}
+      <main class="app-main">
+        {% block content %}
+    <div class="page-header">
+        <div class="page-badge"><i class="bi bi-truck-flatbed"></i> Proveedores</div>
+        <h1 class="page-title">Red de proveedores</h1>
+        <p class="text-muted">Revisa las empresas que abastecen tu inventario y su estado de colaboración.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-12 col-xl-8">
+            <div class="card-surface">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                        <div>
+                            <h2 class="h4 mb-1">Red actual</h2>
+                            <p class="text-muted mb-0">Filtra por país, categoría o estado.</p>
+                        </div>
+                        <a href="{% url 'inicio_panel' %}" class="btn btn-outline-light action-button"><i class="bi bi-arrow-left-circle me-2"></i>Volver al panel</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-4 flex-wrap">
+                        <div class="info-pill"><i class="bi bi-building"></i> 16 proveedores</div>
+                        <input type="text" id="search_proveedores" oninput="filterTable('search_proveedores','table_proveedores')" class="form-control search-control" placeholder="Buscar proveedores...">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless text-white align-middle mb-0" id="table_proveedores">
+                            <thead>
+                                <tr>
+                                    <th>Proveedor</th>
+                                    <th>País</th>
+                                    <th>Condición</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Intel Supply</td>
+                                    <td>Perú</td>
+                                    <td><span class="status-chip status-active">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td>SoftWareHouse</td>
+                                    <td>Chile</td>
+                                    <td><span class="status-chip status-active">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Distribuciones Sol</td>
+                                    <td>Perú</td>
+                                    <td><span class="status-chip status-pending">Pendiente</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="card-surface">
+                <div class="card-body">
+                    <h3 class="h5 mb-3">Estado</h3>
+                    <p class="text-muted">Evalúa qué proveedores están aprobados y cuáles requieren atención.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Aprobados</span>
+                            <strong>11</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Revisión</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Rechazados</span>
+                            <strong>2</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endblock %}
+      </main>
+      {% include 'Complementos/footer.html' %}
+    </div>
+    {% include 'Complementos/scripts.html' %}
+    {% block page_scripts %}{% endblock %}
+  </body>
+</html>
+
+

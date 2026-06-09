@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <!--begin::Head-->
+  <head>
+    {% include 'Complementos/head.html' %}
+    {% block page_styles %}{% endblock %}
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      {% include 'Complementos/header.html' %}
+      {% include 'Complementos/sidebar.html' %}
+      <main class="app-main">
+        {% block content %}
+    <div class="page-header">
+        <div class="page-badge"><i class="bi bi-person-badge-fill"></i> Detalle roles</div>
+        <h1 class="page-title">Detalle de roles</h1>
+        <p class="text-muted">Visualiza las características y permisos asignados a cada rol.</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-12 col-xl-8">
+            <div class="card-surface">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                        <div>
+                            <h2 class="h4 mb-1">Roles y permisos</h2>
+                            <p class="text-muted mb-0">Revisa qué funcionalidades tiene cada perfil.</p>
+                        </div>
+                        <a href="{% url 'inicio_panel' %}" class="btn btn-outline-light action-button"><i class="bi bi-arrow-left-circle me-2"></i>Volver al panel</a>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-4 flex-wrap">
+                        <div class="info-pill"><i class="bi bi-card-text"></i> 7 roles</div>
+                        <input type="text" id="search_detalle_roles" oninput="filterTable('search_detalle_roles','table_detalle_roles')" class="form-control search-control" placeholder="Buscar detalle...">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless text-white align-middle mb-0" id="table_detalle_roles">
+                            <thead>
+                                <tr>
+                                    <th>Rol</th>
+                                    <th>Permiso principal</th>
+                                    <th>Área</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Administrador</td>
+                                    <td>Acceso total</td>
+                                    <td>Global</td>
+                                </tr>
+                                <tr>
+                                    <td>Vendedor</td>
+                                    <td>Gestión de ventas</td>
+                                    <td>Comercial</td>
+                                </tr>
+                                <tr>
+                                    <td>Soporte</td>
+                                    <td>Soporte técnico</td>
+                                    <td>Operaciones</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="card-surface">
+                <div class="card-body">
+                    <h3 class="h5 mb-3">Contexto</h3>
+                    <p class="text-muted">El detalle facilita asignar roles correctos a cada usuario.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Roles con acceso total</span>
+                            <strong>2</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="text-muted">Roles restringidos</span>
+                            <strong>5</strong>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Permisos principales</span>
+                            <strong>12</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endblock %}
+      </main>
+      {% include 'Complementos/footer.html' %}
+    </div>
+    {% include 'Complementos/scripts.html' %}
+    {% block page_scripts %}{% endblock %}
+  </body>
+</html>
+
+

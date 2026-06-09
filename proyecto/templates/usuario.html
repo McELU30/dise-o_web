@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include 'Complementos/head.html' %}
+    {% block page_styles %}{% endblock %}
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      {% include 'Complementos/header.html' %}
+      {% include 'Complementos/sidebar.html' %}
+      <main class="app-main">
+        {% block content %}
+        <div class="page-header">
+          <div class="page-badge"><i class="bi bi-person-circle"></i> Usuario</div>
+          <h1 class="page-title">Perfil de usuario</h1>
+          <p class="text-muted">Visualiza y edita la información de los usuarios registrados.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <div class="card-surface">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+                  <div>
+                    <h2 class="h4 mb-1">Usuarios activos</h2>
+                    <p class="text-muted mb-0">Filtra por nombre, correo o rol.</p>
+                  </div>
+                  <a href="{% url 'inicio_panel' %}" class="btn btn-outline-light action-button"><i class="bi bi-arrow-left-circle me-2"></i>Volver al panel</a>
+                </div>
+                <div class="d-flex align-items-center justify-content-between gap-3 mb-4 flex-wrap">
+                  <div class="info-pill"><i class="bi bi-people-fill"></i> 128 usuarios</div>
+                  <input type="text" id="search_usuario" oninput="filterTable('search_usuario','table_usuario')" class="form-control search-control" placeholder="Buscar usuarios...">
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-borderless text-white align-middle mb-0" id="table_usuario">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Lucas Mendoza</td>
+                        <td>lucas@multiblas.com</td>
+                        <td>Administrador</td>
+                        <td><span class="status-chip status-active">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>María Torres</td>
+                        <td>maria@multiblas.com</td>
+                        <td>Vendedor</td>
+                        <td><span class="status-chip status-active">Activo</span></td>
+                      </tr>
+                      <tr>
+                        <td>Carlos R.</td>
+                        <td>carlos@multiblas.com</td>
+                        <td>Soporte</td>
+                        <td><span class="status-chip status-pending">Pendiente</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-4">
+            <div class="card-surface">
+              <div class="card-body">
+                <h3 class="h5 mb-3">Resumen</h3>
+                <p class="text-muted">Administra roles, estados y accesos desde un mismo sitio.</p>
+                <div class="mt-4">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted">Administradores</span>
+                    <strong>3</strong>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="text-muted">Vendedores</span>
+                    <strong>7</strong>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-muted">Soporte</span>
+                    <strong>2</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+      </main>
+      {% include 'Complementos/footer.html' %}
+    </div>
+    {% include 'Complementos/scripts.html' %}
+    {% block page_scripts %}{% endblock %}
+  </body>
+</html>
+

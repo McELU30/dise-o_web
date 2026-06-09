@@ -1,0 +1,157 @@
+<!-- SCRIPTS DE CHART.JS Y CONFIGURACIÓN DE GRÁFICOS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Configuración para los mini gráficos de líneas (sin ejes ni leyendas)
+    const sparklineOptions = {
+        responsive: true, 
+        maintainAspectRatio: false,
+        plugins: { 
+            legend: { display: false }, 
+            tooltip: { enabled: false } 
+        },
+        scales: { 
+            x: { display: false }, 
+            y: { display: false } 
+        },
+        elements: { 
+            point: { radius: 0 } // Oculta los puntitos
+        } 
+    };
+
+    // 1. Gráfico Ventas del Mes
+    new Chart(document.getElementById('lineChart1'), {
+        type: 'line',
+        data: { 
+            labels: ['1','2','3','4','5','6','7'], 
+            datasets: [{ 
+                data: [20, 35, 25, 45, 30, 50, 40], 
+                borderColor: '#a3e6cd', 
+                borderWidth: 2, 
+                tension: 0.3,
+                fill: false
+            }] 
+        },
+        options: sparklineOptions
+    });
+
+    // 2. Gráfico Nuevos Clientes
+    new Chart(document.getElementById('lineChart2'), {
+        type: 'line',
+        data: { 
+            labels: ['1','2','3','4','5','6','7'], 
+            datasets: [{ 
+                data: [40, 30, 45, 25, 35, 20, 30], 
+                borderColor: '#fca5a5', 
+                borderWidth: 2, 
+                tension: 0.3,
+                fill: false
+            }] 
+        },
+        options: sparklineOptions
+    });
+
+    // 3. Gráfico Equipos en Taller
+    new Chart(document.getElementById('lineChart3'), {
+        type: 'line',
+        data: { 
+            labels: ['1','2','3','4','5','6','7'], 
+            datasets: [{ 
+                data: [10, 20, 15, 35, 25, 40, 30], 
+                borderColor: '#93c5fd', 
+                borderWidth: 2, 
+                tension: 0.3,
+                fill: false
+            }] 
+        },
+        options: sparklineOptions
+    });
+
+    // 4. Donut Rendimiento Operativo (50%)
+    new Chart(document.getElementById('donutChart1'), {
+        type: 'doughnut',
+        data: { 
+            datasets: [{ 
+                data: [50, 50], 
+                backgroundColor: ['#0d9488', '#30363d'], 
+                borderWidth: 0 
+            }] 
+        },
+        options: { 
+            responsive: true, 
+            maintainAspectRatio: false, 
+            cutout: '75%', 
+            plugins: { 
+                tooltip: { enabled: false } 
+            } 
+        }
+    });
+
+    // 5. Donut Margen de Ganancia (15%)
+    new Chart(document.getElementById('donutChart2'), {
+        type: 'doughnut',
+        data: { 
+            datasets: [{ 
+                data: [15, 85], 
+                backgroundColor: ['#3b82f6', '#30363d'], 
+                borderWidth: 0 
+            }] 
+        },
+        options: { 
+            responsive: true, 
+            maintainAspectRatio: false, 
+            cutout: '75%', 
+            plugins: { 
+                tooltip: { enabled: false } 
+            } 
+        }
+    });
+
+    // 6. Gráfico de Barras Inventario
+    new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: ['A', 'B', 'C'],
+            datasets: [
+                { 
+                    data: [60, 40, 80], 
+                    backgroundColor: '#a3e6cd', 
+                    barThickness: 8 
+                },
+                { 
+                    data: [40, 70, 30], 
+                    backgroundColor: '#3b82f6', 
+                    barThickness: 8 
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y', 
+            responsive: true, 
+            maintainAspectRatio: false,
+            plugins: { 
+                legend: { display: false } 
+            },
+            scales: {
+                x: { display: false },
+                y: { 
+                    grid: { display: false }, 
+                    ticks: { 
+                        color: '#8b9bb4', 
+                        font: { weight: 'bold' } 
+                    }, 
+                    border: { display: false } 
+                }
+            }
+        }
+    });
+</script>
+
+<!-- Script para prevenir caché del navegador -->
+<script>
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted || (performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0]?.type === 'back_forward')) {
+            window.location.reload();
+        }
+    });
+</script>
